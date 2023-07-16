@@ -73,7 +73,7 @@ export const AnimatedCard = ({defaultOpen, aspectRatio, title, desc, img, bgColo
   return <animated.div
     id={id}
     onMouseEnter={handleHover}
-    className="animateCard rounded-[5px] overflow-hidden relative p-[20px]"
+    className={`animateCard rounded-[5px] overflow-hidden relative p-[20px] ${className}`}
     style={{border: '1px #1A1A1A solid', backgroundColor: bgColor, ...cardSprings}}>
     <animated.h3 className='absolute' style={{...titleSprings}}>{title}</animated.h3>
     <img style={{aspectRatio}} src={img} className='w-[calc(23vw-42px)] object-cover object-center'/>
@@ -86,4 +86,9 @@ export const AnimatedCard = ({defaultOpen, aspectRatio, title, desc, img, bgColo
       </button>
     </div>
   </animated.div>
+}
+
+export const Card = (props: Props) => {
+  // const {width} = useWindowSize()
+  return <AnimatedCard {...props}/>
 }
