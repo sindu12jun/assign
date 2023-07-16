@@ -1,6 +1,6 @@
 import forward from "./assets/forward.svg";
 import {animated, useSpring} from '@react-spring/web'
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 
 type Props = {
   title: string;
@@ -88,7 +88,19 @@ export const AnimatedCard = ({defaultOpen, aspectRatio, title, desc, img, bgColo
   </animated.div>
 }
 
-export const Card = (props: Props) => {
-  // const {width} = useWindowSize()
-  return <AnimatedCard {...props}/>
+export const Card = ({aspectRatio, title, desc, img, bgColor, className}: Props) => {
+  return <div
+    className={`border border-1 border-solid border-[#1A1A1A] rounded-[5px] mb-[20px] sm:mb-0 sm:w-[48.3vw] sm:flex sm:items-center sm:p-[20px] ${className}`}
+    style={{backgroundColor: bgColor}}>
+    <img style={{aspectRatio}} className='sm:w-2/5 object-cover' src={img} alt=""/>
+    <div className='sm:w-3/5 py-6 px-5'>
+      <h4 className='mb-2'>{title}</h4>
+      <p>{desc}</p>
+      <button
+        className='leading-[21px] rounded-[20px] text-sm text-white mt-[32px] sm:mt-[34px] bg-[#3232FB] py-2 px-3'>
+        Know more
+        <img className='inline-block ml-[6px] w-[16px] h-[16px]' src={forward}/>
+      </button>
+    </div>
+  </div>
 }
