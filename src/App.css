@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h3 {
+    @apply text-[24px];
+    @apply leading-[24px];
+    @apply font-semibold;
+}
+
+h4 {
+    @apply text-[18px];
+    @apply leading-[18px];
+    @apply font-semibold;
+}
